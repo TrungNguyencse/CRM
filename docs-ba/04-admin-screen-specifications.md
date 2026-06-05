@@ -1,10 +1,8 @@
-# 04 — Admin Dashboard Screen Specifications
+# 04 — Admin Screen Specifications
 
-> **App:** Next.js 14 (CSR) · **Screens:** 8 · **Users:** Admin, StoreManager
+> **App:** Next.js 14 (CSR) · **Screens:** A01–A08 · **Wireframes:** [mockups/index.html](./mockups/index.html)
 
-Each section follows: **Purpose → Wireframe ref → UI elements → User flows → FE validation → BE integration → Error states**
-
-Wireframe references: [mockups/index.html](./mockups/index.html)
+Each screen: **Purpose → UI → Flows → FE validation → BE integration → Errors**
 
 ---
 
@@ -363,7 +361,7 @@ View full order; update status; enter tracking number; cancel or refund.
 
 | Field | Rule | Error message |
 |-------|------|---------------|
-| Status transition | Valid per state machine (see 02-scope) | "Invalid status transition" |
+| Status transition | Valid per state machine (see [02 § 2.5](./02-scope-and-assumptions.md#25-order-status-lifecycle)) | "Invalid status transition" |
 | Tracking number | Required when status=SHIPPED | "Tracking number is required" |
 | Tracking number | 5–50 chars alphanumeric | "Invalid tracking number" |
 

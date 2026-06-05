@@ -1,7 +1,7 @@
-# 06 — DevOps & Deployment
+# 07 — DevOps & Deployment
 
-> **Scope:** MVP infrastructure within ~22M VND (10% of budget) and shared BE effort  
-> **Target:** Staging + Production on AWS; local dev via Docker Compose
+> **Phase:** 1 MVP · **Budget share:** ~22M VND (10%)  
+> **Target:** Staging + Production on AWS; Docker Compose local
 
 ---
 

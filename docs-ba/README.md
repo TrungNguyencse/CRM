@@ -1,48 +1,48 @@
-# BA Documentation — Omnichannel Convenience Store Platform (MVP)
+# BA Documentation — Phase 1 MVP
 
-> **Version:** 1.0 · **Date:** 30 May 2026  
-> **Audience:** Client, Product Owner, Development team (meetings & sign-off)  
-> **Budget:** 220,000,000 VND · **Team:** 1 FE + 1 BE · **Duration:** 3 months
+> **220,000,000 VND** · 1 FE + 1 BE · 3 months · 18 screens
 
 ---
 
-## Purpose
+## Documents (read in order)
 
-This documentation set translates the original architecture-first technical plan into **business-oriented, screen-level specifications** so the client can understand *what will be built, who uses it, and what rules apply* before development starts. Scope has been **deliberately reduced** to fit budget and timeline.
+| # | File | Who reads it | Contents |
+|---|------|--------------|----------|
+| **01** | [project-overview](./01-project-overview.md) | Client, everyone | Summary, stack, screens, budget, architecture |
+| **02** | [scope-and-assumptions](./02-scope-and-assumptions.md) | Client, QA | In/out scope, rules, **UAT checklist** |
+| **03** | [shop-screens](./03-shop-screen-specifications.md) | BA, FE | S01–S10: UI, flows, validation |
+| **04** | [admin-screens](./04-admin-screen-specifications.md) | BA, FE | A01–A08: UI, flows, validation |
+| **05** | [frontend-specs](./05-frontend-specifications.md) | **FE dev** | Components, tasks, routes, DoD |
+| **06** | [backend-specs](./06-backend-specifications.md) | **BE dev** | APIs, data model, business rules |
+| **07** | [devops](./07-devops-and-deployment.md) | BE, DevOps | AWS, CI/CD |
+| **08** | [implementation-plan](./08-implementation-plan.md) | PM, all | 6 sprints, milestones |
+| — | [mockups/index.html](./mockups/index.html) | Client, BA | Wireframes |
 
----
+### Why this order?
 
-## Document Structure
+```
+01–02  Business context (client kickoff)
+  ↓
+03–04  What each screen does (BA + FE validation)
+  ↓
+05     How to build FE (right after screens — not last)
+  ↓
+06–07  Backend + infrastructure
+  ↓
+08     Timeline & delivery
+```
 
-| # | File | Contents |
-|---|------|----------|
-| 1 | [01-project-overview.md](./01-project-overview.md) | Executive summary, tech stack, screen count, core features, budget allocation |
-| 2 | [02-scope-and-assumptions.md](./02-scope-and-assumptions.md) | In/out of scope, assumptions, risks, acceptance criteria |
-| 3 | [03-shop-screen-specifications.md](./03-shop-screen-specifications.md) | Detailed specs for 10 public shop screens (FE + validation) |
-| 4 | [04-admin-screen-specifications.md](./04-admin-screen-specifications.md) | Detailed specs for 8 admin screens (FE + validation) |
-| 5 | [05-backend-specifications.md](./05-backend-specifications.md) | APIs, business rules, BE validation by module |
-| 6 | [06-devops-and-deployment.md](./06-devops-and-deployment.md) | MVP infrastructure, CI/CD, environments, operational security |
-| 7 | [07-implementation-plan.md](./07-implementation-plan.md) | 3-month roadmap, milestones, deliverables, meeting cadence |
-| — | [mockups/index.html](./mockups/index.html) | Wireframe mockups for key screens (open in browser) |
-
----
-
-## Quick Reference (Executive Summary)
-
-| Item | Value |
-|------|-------|
-| **Total screens** | **18** (10 public Shop + 8 Admin) |
-| **Backend** | 1 Quarkus modular monolith, 4 business modules (no payment gateway) |
-| **Frontend** | 2 Next.js 14 apps (Shop SSR + Admin CSR) |
-| **Mobile / POS** | ❌ Out of MVP scope (Phase 2) |
-| **Payments** | COD + manual bank transfer (no payment gateway fees in MVP) |
-| **Deployment** | Docker + lean AWS (EC2/RDS/S3) — no EKS/MSK |
+> Old `08-frontend` was confusing — FE spec now **05**, directly after screen specs.
 
 ---
 
-## How to Use in Meetings
+## Quick links
 
-1. **Kickoff:** Read `01` + `02` → align on scope and exclusions.  
-2. **UX review:** Open `mockups/index.html` alongside `03` and `04`.  
-3. **Technical review:** `05` + `06` for developers; client only needs the summary in `01`.  
-4. **Sign-off:** Accept deliverables using the checklist in `02` and milestones in `07`.
+| Role | Start here |
+|------|------------|
+| Client | `01` → `02` → mockups |
+| FE dev | `05` + `03` + `04` |
+| BE dev | `06` + `07` |
+| PM | `08` + `02` § 2.7 |
+
+**Post-MVP:** [docs-phases/](../docs-phases/README.md) · [Pricing](../docs-phases/00-pricing-estimates.md)

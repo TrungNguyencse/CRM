@@ -1,10 +1,8 @@
-# 03 — Public Shop Screen Specifications
+# 03 — Shop Screen Specifications
 
-> **App:** Next.js 14 (SSR/ISR) · **Screens:** 10 · **Users:** Guest, Registered Customer
+> **App:** Next.js 14 · **Screens:** S01–S10 · **Wireframes:** [mockups/index.html](./mockups/index.html)
 
-Each section follows: **Purpose → Wireframe ref → UI elements → User flows → FE validation → BE integration → Error states**
-
-Wireframe references: [mockups/index.html](./mockups/index.html)
+Each screen: **Purpose → UI → Flows → FE validation → BE integration → Errors**
 
 ---
 

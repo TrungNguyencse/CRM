@@ -1,7 +1,8 @@
-# 05 — Backend Specifications
+# 06 — Backend Specifications
 
 > **Runtime:** Quarkus 3 · Java 21 · Modular monolith · PostgreSQL 16  
-> **API style:** REST JSON · OpenAPI 3 · RFC 7807 errors · Version prefix `/v1`
+> **API:** REST JSON · OpenAPI 3 · RFC 7807 · `/v1`  
+> **Screens:** [03-shop](./03-shop-screen-specifications.md) · [04-admin](./04-admin-screen-specifications.md) · **FE:** [05-frontend](./05-frontend-specifications.md)
 
 ---
 

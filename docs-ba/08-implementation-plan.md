@@ -1,7 +1,7 @@
-# 07 — Implementation Plan (3 Months)
+# 08 — Implementation Plan
 
-> **Duration:** 12 weeks · **Team:** 1 FE + 1 BE · **Budget:** 220,000,000 VND  
-> **Methodology:** 2-week sprints · Client demo at end of each sprint
+> **Duration:** 12 weeks · **Team:** 1 FE + 1 BE · **Price:** 220,000,000 VND  
+> **Sprints:** 2-week · Sign-off → [02 § 2.7](./02-scope-and-assumptions.md#27-acceptance-criteria-uat-sign-off)
 
 ---
 
@@ -110,7 +110,7 @@ Week:  1  2  3  4  5  6  7  8  9  10  11  12
 | Security pass (OWASP top 10 checklist) | BE | Checklist signed |
 | Performance smoke test | BE | p95 < 1s at 20 concurrent |
 | FE accessibility pass | FE | Form labels, focus states |
-| Client UAT (3 days) | Client | Signed acceptance (02-scope checklist) |
+| Client UAT (3 days) | Client | [02 § 2.7 acceptance](./02-scope-and-assumptions.md#27-acceptance-criteria-uat-sign-off) |
 | Documentation handover | Both | README, API docs, runbooks |
 | Hypercare buffer | Both | 3 days post-launch support |
 

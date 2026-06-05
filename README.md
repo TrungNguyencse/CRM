@@ -1,25 +1,21 @@
-# Convenience Store Platform — Project Documentation
+# Convenience Store Platform — Documentation
 
-Business analysis (BA) specifications and technical reference for an omnichannel convenience store platform MVP.
+| Folder | Description |
+|--------|-------------|
+| [**docs-ba/**](./docs-ba/README.md) | Phase 1 MVP BA specs (220M VND) |
+| [**docs-phases/**](./docs-phases/README.md) | Phases 2–5 roadmap & pricing |
 
-## Contents
+## docs-ba (flat, numbered)
 
-| Folder / file | Description |
-|---------------|-------------|
-| [**docs-ba/**](./docs-ba/) | **Primary deliverable** — BA specs for client meetings (18 screens, MVP scope, 220M VND budget) |
-| [docs-ba/mockups/index.html](./docs-ba/mockups/index.html) | Wireframe mockups (open in browser) |
-| [convenience-store-platform-features (2).md](./convenience-store-platform-features%20(2).md) | Original feature list by module |
-| [plan-convenienceStorePlatform 1 (1).md](./plan-convenienceStorePlatform%201%20(1).md) | Original full technical architecture plan |
+| # | File |
+|---|------|
+| 01 | [project-overview](./docs-ba/01-project-overview.md) |
+| 02 | [scope-and-assumptions](./docs-ba/02-scope-and-assumptions.md) |
+| 03 | [shop-screens](./docs-ba/03-shop-screen-specifications.md) |
+| 04 | [admin-screens](./docs-ba/04-admin-screen-specifications.md) |
+| 05 | [frontend-specs](./docs-ba/05-frontend-specifications.md) |
+| 06 | [backend-specs](./docs-ba/06-backend-specifications.md) |
+| 07 | [devops](./docs-ba/07-devops-and-deployment.md) |
+| 08 | [implementation-plan](./docs-ba/08-implementation-plan.md) |
 
-## Quick start
-
-1. Read [docs-ba/README.md](./docs-ba/README.md) for document index and meeting guide.
-2. Open [docs-ba/01-project-overview.md](./docs-ba/01-project-overview.md) for executive summary.
-3. Open [docs-ba/mockups/index.html](./docs-ba/mockups/index.html) for wireframes.
-
-## MVP scope (summary)
-
-- **Budget:** 220,000,000 VND · **Team:** 1 FE + 1 BE · **Duration:** 3 months
-- **Screens:** 18 (10 Shop + 8 Admin)
-- **Payment:** COD + bank transfer (no payment gateway fees in MVP)
-- **Stack:** Quarkus modular monolith, Next.js 14, PostgreSQL, AWS (lean)
+[Wireframes](./docs-ba/mockups/index.html) · [Full pricing](./docs-phases/00-pricing-estimates.md)
