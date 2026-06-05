@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Convenience Store Platform — Wireframe Mockups (MVP)</title>
+  <style>
+    :root {
+      --bg: #f4f4f5;
+      --card: #fff;
+      --border: #d4d4d8;
+      --text: #18181b;
+      --muted: #71717a;
+      --primary: #2563eb;
+      --primary-light: #dbeafe;
+      --accent: #16a34a;
+      --sidebar: #1e293b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    header {
+      background: var(--sidebar);
+      color: #fff;
+      padding: 1.5rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    header h1 { font-size: 1.25rem; font-weight: 600; }
+    header p { font-size: 0.875rem; color: #94a3b8; margin-top: 0.25rem; }
+    nav.toc {
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      padding: 0.75rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      position: sticky;
+      top: 72px;
+      z-index: 99;
+    }
+    nav.toc a {
+      color: var(--primary);
+      text-decoration: none;
+      font-size: 0.8125rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+    }
+    nav.toc a:hover { background: var(--primary-light); }
+    main { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+    section { margin-bottom: 3rem; }
+    section > h2 {
+      font-size: 1.125rem;
+      margin-bottom: 0.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    section > h2 .badge {
+      font-size: 0.6875rem;
+      background: var(--primary-light);
+      color: var(--primary);
+      padding: 0.125rem 0.5rem;
+      border-radius: 999px;
+      font-weight: 500;
+    }
+    section > .meta {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .wireframe {
+      background: var(--card);
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+    .wf-header {
+      border-bottom: 1px dashed var(--border);
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      background: #fafafa;
+    }
+    .wf-logo {
+      width: 80px;
+      height: 28px;
+      background: var(--border);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.625rem;
+      color: var(--muted);
+    }
+    .wf-search {
+      flex: 1;
+      max-width: 320px;
+      height: 32px;
+      border: 1px dashed var(--border);
+      border-radius: 6px;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      padding: 0 0.75rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+    .wf-nav-icons {
+      display: flex;
+      gap: 0.75rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+    .wf-body { padding: 1rem; min-height: 200px; }
+    .wf-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+    }
+    .wf-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+    }
+    .wf-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .wf-card {
+      border: 1px dashed var(--border);
+      border-radius: 6px;
+      padding: 0.75rem;
+      background: #fafafa;
+    }
+    .wf-img {
+      width: 100%;
+      aspect-ratio: 1;
+      background: #e4e4e7;
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.625rem;
+      color: var(--muted);
+    }
+    .wf-img.wide { aspect-ratio: 16/9; }
+    .wf-line {
+      height: 10px;
+      background: #e4e4e7;
+      border-radius: 2px;
+      margin-bottom: 0.375rem;
+    }
+    .wf-line.short { width: 60%; }
+    .wf-line.medium { width: 80%; }
+    .wf-btn {
+      display: inline-block;
+      padding: 0.375rem 0.75rem;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      margin-top: 0.5rem;
+    }
+    .wf-btn.secondary {
+      background: #fff;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .wf-btn.green { background: var(--accent); }
+    .wf-hero {
+      height: 120px;
+      background: linear-gradient(135deg, #dbeafe, #e0e7ff);
+      border: 1px dashed var(--primary);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8125rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    .wf-sidebar-layout {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      min-height: 360px;
+    }
+    .wf-sidebar {
+      background: var(--sidebar);
+      color: #94a3b8;
+      padding: 1rem 0;
+      font-size: 0.8125rem;
+    }
+    .wf-sidebar .item {
+      padding: 0.5rem 1rem;
+      border-left: 3px solid transparent;
+    }
+    .wf-sidebar .item.active {
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      border-left-color: var(--primary);
+    }
+    .wf-form-group {
+      margin-bottom: 0.75rem;
+    }
+    .wf-label {
+      font-size: 0.6875rem;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+    .wf-input {
+      height: 32px;
+      border: 1px dashed var(--border);
+      border-radius: 4px;
+      background: #fff;
+      width: 100%;
+    }
+    .wf-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.75rem;
+    }
+    .wf-table th, .wf-table td {
+      border: 1px dashed var(--border);
+      padding: 0.5rem;
+      text-align: left;
+    }
+    .wf-table th { background: #f4f4f5; }
+    .wf-status {
+      display: inline-block;
+      padding: 0.125rem 0.5rem;
+      border-radius: 999px;
+      font-size: 0.625rem;
+      font-weight: 500;
+    }
+    .wf-status.confirmed { background: #dcfce7; color: #166534; }
+    .wf-status.pending { background: #fef9c3; color: #854d0e; }
+    .wf-status.shipped { background: #dbeafe; color: #1e40af; }
+    .wf-timeline {
+      display: flex;
+      gap: 0;
+      margin: 1rem 0;
+    }
+    .wf-timeline .step {
+      flex: 1;
+      text-align: center;
+      font-size: 0.625rem;
+      position: relative;
+    }
+    .wf-timeline .dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--primary);
+      margin: 0 auto 0.25rem;
+    }
+    .wf-timeline .step.pending .dot { background: var(--border); }
+    .wf-kpi-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .wf-kpi {
+      border: 1px dashed var(--border);
+      border-radius: 6px;
+      padding: 0.75rem;
+      text-align: center;
+    }
+    .wf-kpi .num { font-size: 1.25rem; font-weight: 700; color: var(--primary); }
+    .wf-kpi .lbl { font-size: 0.6875rem; color: var(--muted); }
+    .note {
+      margin-top: 0.75rem;
+      padding: 0.75rem;
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-radius: 6px;
+      font-size: 0.8125rem;
+      color: #92400e;
+    }
+    @media (max-width: 768px) {
+      .wf-grid-4, .wf-grid-3, .wf-kpi-row { grid-template-columns: repeat(2, 1fr); }
+      .wf-sidebar-layout { grid-template-columns: 1fr; }
+      .wf-sidebar { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Convenience Store Platform — Wireframe Mockups</h1>
+    <p>MVP · 18 screens · For client review · Open alongside screen specifications</p>
+  </header>
+
+  <nav class="toc">
+    <strong style="font-size:0.8125rem;margin-right:0.5rem;">Shop:</strong>
+    <a href="#s01">S01 Home</a>
+    <a href="#s03">S03 Product</a>
+    <a href="#s05">S05 Cart</a>
+    <a href="#s06">S06 Checkout</a>
+    <a href="#s10">S10 Order</a>
+    <strong style="font-size:0.8125rem;margin-left:1rem;margin-right:0.5rem;">Admin:</strong>
+    <a href="#a02">A02 Dashboard</a>
+    <a href="#a04">A04 Product</a>
+    <a href="#a08">A08 Order</a>
+  </nav>
+
+  <main>
+    <!-- S01 -->
+    <section id="s01">
+      <h2>S01 — Home <span class="badge">Shop</span></h2>
+      <p class="meta">Route: / · SSR · Guest & Customer</p>
+      <div class="wireframe">
+        <div class="wf-header">
+          <div class="wf-logo">LOGO</div>
+          <div class="wf-search">🔍 Search products...</div>
+          <div class="wf-nav-icons">🛒 Cart (2) · 👤 Account</div>
+        </div>
+        <div class="wf-body">
+          <div class="wf-hero">Hero Banner — Promotions & Seasonal Offers</div>
+          <p style="font-size:0.75rem;color:var(--muted);margin-bottom:0.5rem;">Categories</p>
+          <div class="wf-grid-4" style="margin-bottom:1.25rem;">
+            <div class="wf-card"><div class="wf-img">📦</div><div class="wf-line short"></div></div>
+            <div class="wf-card"><div class="wf-img">🥤</div><div class="wf-line short"></div></div>
+            <div class="wf-card"><div class="wf-img">🍜</div><div class="wf-line short"></div></div>
+            <div class="wf-card"><div class="wf-img">🧴</div><div class="wf-line short"></div></div>
+          </div>
+          <p style="font-size:0.75rem;color:var(--muted);margin-bottom:0.5rem;">Featured Products</p>
+          <div class="wf-grid-4">
+            <div class="wf-card"><div class="wf-img"></div><div class="wf-line medium"></div><div class="wf-line short"></div><span class="wf-btn secondary" style="font-size:0.625rem;">Add to cart</span></div>
+            <div class="wf-card"><div class="wf-img"></div><div class="wf-line medium"></div><div class="wf-line short"></div><span class="wf-btn secondary" style="font-size:0.625rem;">Add to cart</span></div>
+            <div class="wf-card"><div class="wf-img"></div><div class="wf-line medium"></div><div class="wf-line short"></div><span class="wf-btn secondary" style="font-size:0.625rem;">Add to cart</span></div>
+            <div class="wf-card"><div class="wf-img"></div><div class="wf-line medium"></div><div class="wf-line short"></div><span class="wf-btn secondary" style="font-size:0.625rem;">Add to cart</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S03 -->
+    <section id="s03">
+      <h2>S03 — Product Detail <span class="badge">Shop</span></h2>
+      <p class="meta">Route: /products/[slug] · ISR</p>
+      <div class="wireframe">
+        <div class="wf-header">
+          <div class="wf-logo">LOGO</div>
+          <div class="wf-search">🔍 Search...</div>
+          <div class="wf-nav-icons">🛒 · 👤</div>
+        </div>
+        <div class="wf-body">
+          <p style="font-size:0.6875rem;color:var(--muted);margin-bottom:0.75rem;">Home › Snacks › Potato Chips</p>
+          <div class="wf-grid-2">
+            <div>
+              <div class="wf-img" style="aspect-ratio:4/3;margin-bottom:0.5rem;">Main Image</div>
+              <div style="display:flex;gap:0.5rem;">
+                <div class="wf-img" style="width:60px;height:60px;aspect-ratio:1;"></div>
+                <div class="wf-img" style="width:60px;height:60px;aspect-ratio:1;"></div>
+                <div class="wf-img" style="width:60px;height:60px;aspect-ratio:1;"></div>
+              </div>
+            </div>
+            <div>
+              <div class="wf-line" style="height:16px;width:90%;"></div>
+              <div class="wf-line short" style="margin:0.5rem 0;"></div>
+              <p style="font-size:1.25rem;font-weight:700;margin:0.75rem 0;">₫45,000</p>
+              <p style="font-size:0.75rem;color:var(--accent);">✓ In stock (24 available)</p>
+              <div style="display:flex;align-items:center;gap:0.75rem;margin:1rem 0;">
+                <span style="font-size:0.75rem;">Qty:</span>
+                <div style="border:1px dashed var(--border);padding:0.25rem 0.75rem;border-radius:4px;font-size:0.875rem;">− 1 +</div>
+              </div>
+              <span class="wf-btn">Add to Cart</span>
+              <p style="font-size:0.75rem;color:var(--muted);margin-top:1rem;">SKU: SNK-001 · Brand: CrispCo</p>
+              <div style="margin-top:1rem;padding-top:1rem;border-top:1px dashed var(--border);">
+                <p style="font-size:0.75rem;font-weight:600;margin-bottom:0.5rem;">Description</p>
+                <div class="wf-line"></div><div class="wf-line"></div><div class="wf-line medium"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S05 -->
+    <section id="s05">
+      <h2>S05 — Shopping Cart <span class="badge">Shop</span></h2>
+      <p class="meta">Route: /cart · CSR</p>
+      <div class="wireframe">
+        <div class="wf-header">
+          <div class="wf-logo">LOGO</div>
+          <div class="wf-nav-icons" style="margin-left:auto;">🛒 Cart · 👤</div>
+        </div>
+        <div class="wf-body">
+          <h3 style="font-size:1rem;margin-bottom:1rem;">Your Cart (3 items)</h3>
+          <div class="wf-grid-2">
+            <div>
+              <table class="wf-table">
+                <thead><tr><th>Product</th><th>Price</th><th>Qty</th><th>Total</th><th></th></tr></thead>
+                <tbody>
+                  <tr><td>🖼 Potato Chips</td><td>₫45,000</td><td>2</td><td>₫90,000</td><td>✕</td></tr>
+                  <tr><td>🖼 Bottled Water</td><td>₫10,000</td><td>1</td><td>₫10,000</td><td>✕</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="wf-card">
+              <p style="font-size:0.875rem;font-weight:600;margin-bottom:0.75rem;">Order Summary</p>
+              <div style="display:flex;justify-content:space-between;font-size:0.8125rem;margin-bottom:0.375rem;"><span>Subtotal</span><span>₫100,000</span></div>
+              <div style="display:flex;justify-content:space-between;font-size:0.8125rem;margin-bottom:0.375rem;"><span>Tax (10%)</span><span>₫10,000</span></div>
+              <div style="display:flex;justify-content:space-between;font-size:0.8125rem;margin-bottom:0.375rem;"><span>Shipping</span><span>₫30,000</span></div>
+              <hr style="border:none;border-top:1px dashed var(--border);margin:0.5rem 0;">
+              <div style="display:flex;justify-content:space-between;font-weight:700;"><span>Total</span><span>₫140,000</span></div>
+              <span class="wf-btn green" style="display:block;text-align:center;margin-top:1rem;">Proceed to Checkout</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S06 -->
+    <section id="s06">
+      <h2>S06 — Checkout <span class="badge">Shop</span></h2>
+      <p class="meta">Route: /checkout · COD or bank transfer (no payment gateway)</p>
+      <div class="wireframe">
+        <div class="wf-header">
+          <div class="wf-logo">LOGO</div>
+          <div class="wf-nav-icons" style="margin-left:auto;">Step 2 of 2: Review & Pay</div>
+        </div>
+        <div class="wf-body">
+          <div class="wf-grid-2">
+            <div>
+              <p style="font-size:0.875rem;font-weight:600;margin-bottom:0.75rem;">Shipping Address</p>
+              <div class="wf-form-group"><div class="wf-label">Full Name *</div><div class="wf-input"></div></div>
+              <div class="wf-form-group"><div class="wf-label">Phone *</div><div class="wf-input"></div></div>
+              <div class="wf-form-group"><div class="wf-label">Address Line 1 *</div><div class="wf-input"></div></div>
+              <div class="wf-grid-2" style="gap:0.5rem;">
+                <div class="wf-form-group"><div class="wf-label">City *</div><div class="wf-input"></div></div>
+                <div class="wf-form-group"><div class="wf-label">District *</div><div class="wf-input"></div></div>
+              </div>
+              <p style="font-size:0.875rem;font-weight:600;margin:1rem 0 0.75rem;">Payment Method</p>
+              <div class="wf-card" style="margin-bottom:0.5rem;border-color:var(--primary);">
+                <label style="font-size:0.8125rem;display:flex;align-items:center;gap:0.5rem;">
+                  <input type="radio" name="pay" checked> 💵 Cash on Delivery (COD)
+                </label>
+                <p style="font-size:0.6875rem;color:var(--muted);margin-top:0.25rem;margin-left:1.25rem;">Pay when your order arrives</p>
+              </div>
+              <div class="wf-card" style="margin-bottom:0.75rem;">
+                <label style="font-size:0.8125rem;display:flex;align-items:center;gap:0.5rem;">
+                  <input type="radio" name="pay"> 🏦 Bank Transfer
+                </label>
+                <p style="font-size:0.6875rem;color:var(--muted);margin-top:0.25rem;margin-left:1.25rem;">Transfer to store account; admin confirms payment</p>
+              </div>
+              <label style="font-size:0.75rem;display:flex;align-items:center;gap:0.5rem;margin-top:0.75rem;">
+                <input type="checkbox" checked> I agree to Terms & Conditions
+              </label>
+              <span class="wf-btn green" style="margin-top:1rem;">Place Order — ₫140,000</span>
+            </div>
+            <div class="wf-card">
+              <p style="font-size:0.875rem;font-weight:600;margin-bottom:0.75rem;">Your Order</p>
+              <div style="font-size:0.8125rem;margin-bottom:0.5rem;">2× Potato Chips — ₫90,000</div>
+              <div style="font-size:0.8125rem;margin-bottom:0.75rem;">1× Bottled Water — ₫10,000</div>
+              <hr style="border:none;border-top:1px dashed var(--border);margin:0.5rem 0;">
+              <div style="display:flex;justify-content:space-between;font-weight:700;"><span>Total</span><span>₫140,000</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="note">No payment gateway in MVP — zero transaction fees. Admin confirms bank transfers manually in A08.</div>
+    </section>
+
+    <!-- S10 -->
+    <section id="s10">
+      <h2>S10 — Order Detail / Tracking <span class="badge">Shop</span></h2>
+      <p class="meta">Route: /account/orders/[id]</p>
+      <div class="wireframe">
+        <div class="wf-header">
+          <div class="wf-logo">LOGO</div>
+          <div class="wf-nav-icons" style="margin-left:auto;">👤 My Account</div>
+        </div>
+        <div class="wf-body">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+            <div>
+              <h3 style="font-size:1rem;">Order #ORD-20260530-001234</h3>
+              <p style="font-size:0.75rem;color:var(--muted);">Placed 30 May 2026</p>
+            </div>
+            <span class="wf-status confirmed">CONFIRMED</span>
+          </div>
+          <div class="wf-timeline">
+            <div class="step"><div class="dot"></div>Placed</div>
+            <div class="step"><div class="dot"></div>Confirmed</div>
+            <div class="step pending"><div class="dot"></div>Shipped</div>
+            <div class="step pending"><div class="dot"></div>Delivered</div>
+          </div>
+          <div class="wf-grid-2" style="margin-top:1rem;">
+            <div class="wf-card">
+              <p style="font-size:0.75rem;font-weight:600;margin-bottom:0.5rem;">Items</p>
+              <div style="font-size:0.8125rem;">2× Potato Chips — ₫90,000</div>
+              <div style="font-size:0.8125rem;">1× Bottled Water — ₫10,000</div>
+            </div>
+            <div class="wf-card">
+              <p style="font-size:0.75rem;font-weight:600;margin-bottom:0.5rem;">Shipping to</p>
+              <div style="font-size:0.8125rem;">Nguyen Van A<br>123 Le Loi, District 1<br>Ho Chi Minh City</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- A02 -->
+    <section id="a02">
+      <h2>A02 — Admin Dashboard <span class="badge">Admin</span></h2>
+      <p class="meta">Route: /admin · Admin & StoreManager</p>
+      <div class="wireframe">
+        <div class="wf-sidebar-layout">
+          <div class="wf-sidebar">
+            <div style="padding:0 1rem 1rem;font-weight:600;color:#fff;">Store Admin</div>
+            <div class="item active">📊 Dashboard</div>
+            <div class="item">📦 Products</div>
+            <div class="item">📁 Categories</div>
+            <div class="item">📋 Inventory</div>
+            <div class="item">🛍 Orders</div>
+          </div>
+          <div class="wf-body">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+              <h3 style="font-size:1rem;">Dashboard</h3>
+              <span style="font-size:0.75rem;color:var(--muted);">Admin User ▾</span>
+            </div>
+            <div class="wf-kpi-row">
+              <div class="wf-kpi"><div class="num">12</div><div class="lbl">Orders Today</div></div>
+              <div class="wf-kpi"><div class="num">₫4.2M</div><div class="lbl">Revenue (30d)</div></div>
+              <div class="wf-kpi"><div class="num">5</div><div class="lbl">Pending Orders</div></div>
+              <div class="wf-kpi"><div class="num" style="color:#dc2626;">3</div><div class="lbl">Low Stock</div></div>
+            </div>
+            <p style="font-size:0.75rem;font-weight:600;margin-bottom:0.5rem;">Recent Orders</p>
+            <table class="wf-table">
+              <thead><tr><th>Order #</th><th>Customer</th><th>Total</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td>ORD-001234</td><td>nguyen@email.com</td><td>₫140,000</td><td><span class="wf-status confirmed">CONFIRMED</span></td></tr>
+                <tr><td>ORD-001233</td><td>tran@email.com</td><td>₫85,000</td><td><span class="wf-status shipped">SHIPPED</span></td></tr>
+                <tr><td>ORD-001232</td><td>le@email.com</td><td>₫220,000</td><td><span class="wf-status pending">PENDING</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- A04 -->
+    <section id="a04">
+      <h2>A04 — Product Create / Edit <span class="badge">Admin</span></h2>
+      <p class="meta">Route: /admin/products/new · /admin/products/[id]</p>
+      <div class="wireframe">
+        <div class="wf-sidebar-layout">
+          <div class="wf-sidebar">
+            <div class="item">📊 Dashboard</div>
+            <div class="item active">📦 Products</div>
+            <div class="item">📁 Categories</div>
+            <div class="item">📋 Inventory</div>
+            <div class="item">🛍 Orders</div>
+          </div>
+          <div class="wf-body">
+            <h3 style="font-size:1rem;margin-bottom:1rem;">Edit Product</h3>
+            <div class="wf-grid-2">
+              <div>
+                <div class="wf-form-group"><div class="wf-label">Product Name *</div><div class="wf-input"></div></div>
+                <div class="wf-form-group"><div class="wf-label">SKU *</div><div class="wf-input"></div></div>
+                <div class="wf-form-group"><div class="wf-label">Category *</div><div class="wf-input"></div></div>
+                <div class="wf-form-group"><div class="wf-label">Price (VND) *</div><div class="wf-input"></div></div>
+                <div class="wf-form-group"><div class="wf-label">Status</div><div class="wf-input"></div></div>
+              </div>
+              <div>
+                <div class="wf-label">Images (drag & drop)</div>
+                <div class="wf-card" style="min-height:120px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:0.75rem;border-style:dashed;">
+                  + Upload images (max 5)
+                </div>
+                <div style="display:flex;gap:0.5rem;margin-top:0.5rem;">
+                  <div class="wf-img" style="width:64px;height:64px;aspect-ratio:1;"></div>
+                  <div class="wf-img" style="width:64px;height:64px;aspect-ratio:1;"></div>
+                </div>
+              </div>
+            </div>
+            <div style="margin-top:1rem;display:flex;gap:0.5rem;">
+              <span class="wf-btn">Save & Publish</span>
+              <span class="wf-btn secondary">Save as Draft</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- A08 -->
+    <section id="a08">
+      <h2>A08 — Order Detail <span class="badge">Admin</span></h2>
+      <p class="meta">Route: /admin/orders/[id] · Status updates, tracking, refund</p>
+      <div class="wireframe">
+        <div class="wf-sidebar-layout">
+          <div class="wf-sidebar">
+            <div class="item">📊 Dashboard</div>
+            <div class="item">📦 Products</div>
+            <div class="item">📋 Inventory</div>
+            <div class="item active">🛍 Orders</div>
+          </div>
+          <div class="wf-body">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+              <h3 style="font-size:1rem;">Order #ORD-20260530-001234</h3>
+              <div style="display:flex;gap:0.5rem;">
+                <span class="wf-btn secondary">Cancel</span>
+                <span class="wf-btn green">Confirm Payment</span>
+              </div>
+            </div>
+            <div class="wf-grid-2">
+              <div class="wf-card">
+                <p style="font-size:0.75rem;font-weight:600;">Customer</p>
+                <p style="font-size:0.8125rem;">Nguyen Van A · nguyen@email.com · 0901234567</p>
+                <p style="font-size:0.75rem;font-weight:600;margin-top:0.75rem;">Update Status</p>
+                <div class="wf-input" style="margin:0.375rem 0;"></div>
+                <div class="wf-form-group"><div class="wf-label">Tracking Number (required for Shipped)</div><div class="wf-input"></div></div>
+                <span class="wf-btn">Update Status</span>
+              </div>
+              <div class="wf-card">
+                <p style="font-size:0.75rem;font-weight:600;">Status History</p>
+                <div style="font-size:0.75rem;margin-top:0.5rem;">
+                  <div>✓ CONFIRMED — 30 May 10:32 — System</div>
+                  <div style="color:var(--muted);">○ PENDING — 30 May 10:30 — System</div>
+                </div>
+                <p style="font-size:0.75rem;font-weight:600;margin-top:0.75rem;">Payment</p>
+                <p style="font-size:0.8125rem;">Bank Transfer · AWAITING_PAYMENT · Ref: KH Nguyen 140k</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="note">StoreManager can confirm bank transfer and update status. No automated refund — cancellations handled offline.</div>
+    </section>
+
+    <section>
+      <h2>Screen Index</h2>
+      <p class="meta">Full specifications in 03-shop-screen-specifications.md and 04-admin-screen-specifications.md</p>
+      <table class="wf-table" style="background:var(--card);">
+        <thead><tr><th>ID</th><th>Screen</th><th>App</th><th>Mockup above?</th></tr></thead>
+        <tbody>
+          <tr><td>S01</td><td>Home</td><td>Shop</td><td>✓</td></tr>
+          <tr><td>S02</td><td>Category Listing</td><td>Shop</td><td>Similar to S01 grid</td></tr>
+          <tr><td>S03</td><td>Product Detail</td><td>Shop</td><td>✓</td></tr>
+          <tr><td>S04</td><td>Search Results</td><td>Shop</td><td>Similar to S02</td></tr>
+          <tr><td>S05</td><td>Shopping Cart</td><td>Shop</td><td>✓</td></tr>
+          <tr><td>S06</td><td>Checkout</td><td>Shop</td><td>✓</td></tr>
+          <tr><td>S07</td><td>Login / Register</td><td>Shop</td><td>Standard form layout</td></tr>
+          <tr><td>S08</td><td>Account Profile</td><td>Shop</td><td>Standard form layout</td></tr>
+          <tr><td>S09</td><td>Order History</td><td>Shop</td><td>Similar to A07 table</td></tr>
+          <tr><td>S10</td><td>Order Detail</td><td>Shop</td><td>✓</td></tr>
+          <tr><td>A01</td><td>Admin Login</td><td>Admin</td><td>Standard form layout</td></tr>
+          <tr><td>A02</td><td>Dashboard</td><td>Admin</td><td>✓</td></tr>
+          <tr><td>A03</td><td>Product List</td><td>Admin</td><td>Similar to A07 table</td></tr>
+          <tr><td>A04</td><td>Product Create/Edit</td><td>Admin</td><td>✓</td></tr>
+          <tr><td>A05</td><td>Category Management</td><td>Admin</td><td>Tree table</td></tr>
+          <tr><td>A06</td><td>Inventory</td><td>Admin</td><td>Table + adjust modal</td></tr>
+          <tr><td>A07</td><td>Order List</td><td>Admin</td><td>Similar to A02 table</td></tr>
+          <tr><td>A08</td><td>Order Detail</td><td>Admin</td><td>✓</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
