@@ -37,14 +37,22 @@ COD/Transfer→    VNPay/MoMo/Stripe   →  same          →   same
 
 ## Document Structure
 
-Each phase folder contains:
+Each phase folder (2–5) has **3 owner files** so FE and BE can edit in parallel:
 
-| File | Purpose |
-|------|---------|
-| [00-pricing-estimates.md](./00-pricing-estimates.md) | **Pricing all phases** — rates, breakdowns, payment schedule |
+| File | Owner | Purpose |
+|------|-------|---------|
+| `general.md` | PM / both | Goals, scope, sprint, acceptance |
+| `frontend.md` | **FE** | Screens, UI, FE/mobile tasks |
+| `backend.md` | **BE** | APIs, modules, infra, BE tasks |
+
+Phase 1 pointers → [docs-ba/](../docs-ba/README.md) (live MVP specs).
+
+| Root file | Purpose |
+|-----------|---------|
+| [CONTRIBUTING.md](./CONTRIBUTING.md) | Edit rules, git workflow |
+| [00-pricing-estimates.md](./00-pricing-estimates.md) | Pricing all phases |
 | [00-phase-map.md](./00-phase-map.md) | Module coverage matrix |
-| `README.md` | Summary, prerequisites, deliverables |
-| `specification.md` | Full scope: modules, screens, BE/FE tasks, acceptance |
+| `README.md` | Phase summary index |
 
 ---
 
@@ -77,6 +85,9 @@ Phase 1 (MVP) ──must complete──► Phase 2 (Payments need order flow)
 
 ## How to Use
 
-1. **Client / PO:** Read this README + each phase `README.md` for roadmap meetings.  
-2. **Dev lead:** Use `specification.md` per phase for sprint planning.  
-3. **After MVP sign-off:** Kick off Phase 2 scoping with client budget approval.
+1. **Client / PO:** Read this README + each phase `general.md`.  
+2. **FE dev:** Edit `frontend.md` only for your phase.  
+3. **BE dev:** Edit `backend.md` only for your phase.  
+4. **After MVP sign-off:** Kick off Phase 2 with client budget approval.
+
+→ [CONTRIBUTING.md](./CONTRIBUTING.md)

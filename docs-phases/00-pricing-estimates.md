@@ -280,7 +280,7 @@ Minimum change request: **5 dev-days** (~9–10.5M VND).
 | Phase | Spec | Price |
 |-------|------|-------|
 | 1 | [docs-ba/](../docs-ba/README.md) | **220M** (see [01-overview](../docs-ba/01-project-overview.md)) |
-| 2 | [phase-2/specification.md](./phase-2-commerce-payments/specification.md) | **295M** |
-| 3 | [phase-3/specification.md](./phase-3-omnichannel-loyalty/specification.md) | **295M** |
-| 4 | [phase-4/specification.md](./phase-4-mobile-search/specification.md) | **390M** |
-| 5 | [phase-5/specification.md](./phase-5-platform-scale/specification.md) | **660M** |
+| 2 | [phase-2/general.md](./phase-2-commerce-payments/general.md) | **295M** |
+| 3 | [phase-3/general.md](./phase-3-omnichannel-loyalty/general.md) | **295M** |
+| 4 | [phase-4/general.md](./phase-4-mobile-search/general.md) | **390M** |
+| 5 | [phase-5/general.md](./phase-5-platform-scale/general.md) | **660M** |
